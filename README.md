@@ -1,2 +1,2 @@
 # VertigoGamesCaseStudy
-Vertigo Games Technical Artist
+Vertigo Games Technical Artist Case Study
