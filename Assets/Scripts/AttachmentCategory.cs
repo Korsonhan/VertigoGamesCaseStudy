@@ -20,6 +20,7 @@ public class AttachmentCategory : MonoBehaviour
     public Sprite[] attachmentIcons; // Alt paneldeki butonların 2D ikonları (Sırasıyla)
 
     private GameObject previewItem;
+    public WeaponStatsManager statsManager;
 
     void Start()
     {
@@ -41,6 +42,14 @@ public class AttachmentCategory : MonoBehaviour
 
         previewItem = itemToPreview;
         if (previewItem != null) previewItem.SetActive(true);
+
+        // İstatistik Hesaplayıcıyı Çalıştır
+        if (statsManager != null)
+        {
+            AttachmentStats eqStats = equippedItem != null ? equippedItem.GetComponent<AttachmentStats>() : null;
+            AttachmentStats prevStats = previewItem != null ? previewItem.GetComponent<AttachmentStats>() : null;
+            statsManager.CalculateAndLogStats(eqStats, prevStats);
+        }
 
         UpdateEquipButtonState();
         UpdateHighlights();
