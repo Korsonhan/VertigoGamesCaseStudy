@@ -835,10 +835,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e7c842aebb63042adcfecbbb2dfc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
-  powerBonus: 4
+  powerBonus: 0
   damageBonus: 0
-  firerateBonus: 10
-  accuracyBonus: 20
+  fireRateBonus: 0
+  accuracyBonus: 0
   speedBonus: 0
   rangeBonus: 0
 --- !u!1 &114423388
@@ -1218,11 +1218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e7c842aebb63042adcfecbbb2dfc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
-  powerBonus: -1
-  damageBonus: -2
-  firerateBonus: -5
-  accuracyBonus: 5
-  speedBonus: 1
+  powerBonus: 0
+  damageBonus: 0
+  fireRateBonus: 0
+  accuracyBonus: 0
+  speedBonus: 0
   rangeBonus: 0
 --- !u!1 &191510780
 GameObject:
@@ -1361,11 +1361,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191510780}
   m_CullTransparentMesh: 1
---- !u!4 &193068536 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 93387945456088243, guid: b5706f5e856e33644b06b1f6289adaeb, type: 3}
-  m_PrefabInstance: {fileID: 4672242493300864049}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &200506101 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2531455962869314351, guid: b5706f5e856e33644b06b1f6289adaeb, type: 3}
@@ -1385,7 +1380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 0
   damageBonus: 0
-  firerateBonus: 5
+  fireRateBonus: 0
   accuracyBonus: -1
   speedBonus: -2
   rangeBonus: 0
@@ -2841,8 +2836,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61974b575ff1ada4c91bcb289cb71d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponRotator
-  weaponTarget: {fileID: 193068536}
-  rotationSpeed: 1
+  weaponTarget: {fileID: 553412580}
+  rotationSpeed: 0.5
 --- !u!1 &333119718
 GameObject:
   m_ObjectHideFlags: 0
@@ -3956,9 +3951,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 0
-  damageBonus: -2
-  firerateBonus: -10
-  accuracyBonus: -30
+  damageBonus: 0
+  fireRateBonus: 0
+  accuracyBonus: 0
   speedBonus: 0
   rangeBonus: 0
 --- !u!1 &440867205
@@ -3990,18 +3985,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 027f3d8d852408d4abd940112b1314f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponStatsManager
-  baseDamage: 100
-  baseRange: 50
-  baseAccuracy: 80
+  basePower: 275
+  baseDamage: 549.6
+  baseFireRate: 600
+  baseAccuracy: 96
+  baseSpeed: 96
+  baseRange: 26.4
+  powerTotalText: {fileID: 461568148}
   damageTotalText: {fileID: 1168143521}
-  rangeTotalText: {fileID: 1545891828}
+  fireRateTotalText: {fileID: 191510782}
   accuracyTotalText: {fileID: 527881959}
+  speedTotalText: {fileID: 55219476}
+  rangeTotalText: {fileID: 1545891828}
+  powerDiffText: {fileID: 696300841}
   damageDiffText: {fileID: 277761531}
-  rangeDiffText: {fileID: 1658455720}
+  fireRateDiffText: {fileID: 377086041}
   accuracyDiffText: {fileID: 406595888}
+  speedDiffText: {fileID: 708266436}
+  rangeDiffText: {fileID: 1658455720}
+  powerBarImage: {fileID: 1322493984}
   damageBarImage: {fileID: 1874997454}
-  rangeBarImage: {fileID: 1427367791}
+  fireRateBarImage: {fileID: 1249452436}
   accuracyBarImage: {fileID: 1058130096}
+  speedBarImage: {fileID: 1334433738}
+  rangeBarImage: {fileID: 1427367791}
   defaultColor: {r: 1, g: 1, b: 1, a: 0.14117648}
   buffColor: {r: 0.1, g: 0.6, b: 0.1, a: 0.5}
   nerfColor: {r: 0.6, g: 0.1, b: 0.1, a: 0.5}
@@ -4031,6 +4038,7 @@ GameObject:
   - component: {fileID: 457759605}
   - component: {fileID: 457759606}
   - component: {fileID: 457759607}
+  - component: {fileID: 457759608}
   m_Layer: 5
   m_Name: Group_Stock
   m_TagString: Untagged
@@ -4111,6 +4119,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e3873c6905751274eaeb13775567ffbb, type: 3}
   - {fileID: 21300000, guid: 1279008a963ab8d45b8eb5765ca33ac0, type: 3}
   statsManager: {fileID: 440867206}
+--- !u!114 &457759608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457759604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80c8219fb057a84687ccb77f4d6402d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoResizeScroll
+  scrollViewRect: {fileID: 1756067430}
+  normalHeight: 673
+  kuculmusHeight: 490
 --- !u!1 &461568146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5225,6 +5248,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549737648}
   m_CullTransparentMesh: 1
+--- !u!4 &553412580 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 93387945456088243, guid: b5706f5e856e33644b06b1f6289adaeb, type: 3}
+  m_PrefabInstance: {fileID: 4672242493300864049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &559392871
 GameObject:
   m_ObjectHideFlags: 0
@@ -5319,7 +5347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 0
   damageBonus: 0
-  firerateBonus: 10
+  fireRateBonus: 0
   accuracyBonus: -1
   speedBonus: -2
   rangeBonus: 0
@@ -5417,7 +5445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 0
   damageBonus: 1
-  firerateBonus: 1
+  fireRateBonus: 0
   accuracyBonus: 10
   speedBonus: 0
   rangeBonus: 0
@@ -6224,7 +6252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 2
   damageBonus: 5
-  firerateBonus: 2
+  fireRateBonus: 0
   accuracyBonus: 5
   speedBonus: 1
   rangeBonus: 0
@@ -6739,6 +6767,7 @@ GameObject:
   - component: {fileID: 744558395}
   - component: {fileID: 744558396}
   - component: {fileID: 744558397}
+  - component: {fileID: 744558398}
   m_Layer: 5
   m_Name: Group_Grip
   m_TagString: Untagged
@@ -6823,6 +6852,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1988458d4631c644a81d8467eb8ecedf, type: 3}
   - {fileID: 21300000, guid: 612590b02084e8c4f8b5816c06c3689a, type: 3}
   statsManager: {fileID: 440867206}
+--- !u!114 &744558398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744558394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80c8219fb057a84687ccb77f4d6402d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoResizeScroll
+  scrollViewRect: {fileID: 1756067430}
+  normalHeight: 673
+  kuculmusHeight: 490
 --- !u!1 &767187304
 GameObject:
   m_ObjectHideFlags: 0
@@ -8019,7 +8063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 0
   damageBonus: 0
-  firerateBonus: 2
+  fireRateBonus: 0
   accuracyBonus: -1
   speedBonus: -2
   rangeBonus: 0
@@ -8538,7 +8582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 2
   damageBonus: 4
-  firerateBonus: 30
+  fireRateBonus: 0
   accuracyBonus: 5
   speedBonus: 1
   rangeBonus: 0
@@ -9649,7 +9693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 0
   damageBonus: 2
-  firerateBonus: 10
+  fireRateBonus: 0
   accuracyBonus: 20
   speedBonus: 0
   rangeBonus: 0
@@ -9959,7 +10003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 0
   damageBonus: 0
-  firerateBonus: 40
+  fireRateBonus: 0
   accuracyBonus: 60
   speedBonus: 0
   rangeBonus: 0
@@ -10335,8 +10379,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 0
   damageBonus: 0
-  firerateBonus: 30
-  accuracyBonus: 50
+  fireRateBonus: 0
+  accuracyBonus: 0
   speedBonus: 0
   rangeBonus: 0
 --- !u!1 &1322493982
@@ -10961,7 +11005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 5
   damageBonus: 0
-  firerateBonus: 20
+  fireRateBonus: 0
   accuracyBonus: 80
   speedBonus: 0
   rangeBonus: 0
@@ -11755,7 +11799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Thermal Imaging
+  m_text: "Thermal Imag\u0131ng"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12392,6 +12436,7 @@ GameObject:
   - component: {fileID: 1573795017}
   - component: {fileID: 1573795018}
   - component: {fileID: 1573795019}
+  - component: {fileID: 1573795020}
   m_Layer: 5
   m_Name: Group_Barrel
   m_TagString: Untagged
@@ -12476,6 +12521,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8a142a3de0663144e8dd59755a77c8a1, type: 3}
   - {fileID: 21300000, guid: 76ddea6eabd098242aab0515469c5345, type: 3}
   statsManager: {fileID: 440867206}
+--- !u!114 &1573795020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573795016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80c8219fb057a84687ccb77f4d6402d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoResizeScroll
+  scrollViewRect: {fileID: 1756067430}
+  normalHeight: 673
+  kuculmusHeight: 490
 --- !u!1 &1600191679
 GameObject:
   m_ObjectHideFlags: 0
@@ -13983,7 +14043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 0
   damageBonus: 0
-  firerateBonus: -2
+  fireRateBonus: 0
   accuracyBonus: -1
   speedBonus: -2
   rangeBonus: 0
@@ -14659,9 +14719,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 0
   damageBonus: 0
-  firerateBonus: -5
-  accuracyBonus: -1
-  speedBonus: -2
+  fireRateBonus: 0
+  accuracyBonus: 0
+  speedBonus: 0
   rangeBonus: 0
 --- !u!1 &1950442288
 GameObject:
@@ -14790,7 +14850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AttachmentStats
   powerBonus: 0
   damageBonus: 0
-  firerateBonus: 50
+  fireRateBonus: 0
   accuracyBonus: 70
   speedBonus: 0
   rangeBonus: 0
@@ -15017,6 +15077,7 @@ GameObject:
   - component: {fileID: 2004938273}
   - component: {fileID: 2004938274}
   - component: {fileID: 2004938275}
+  - component: {fileID: 2004938276}
   m_Layer: 5
   m_Name: Group_Mag
   m_TagString: Untagged
@@ -15109,6 +15170,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4f51e6a386fc7c444910027809e8972b, type: 3}
   - {fileID: 21300000, guid: 811b89b1469dac94db8a2d1aaa27cfcd, type: 3}
   statsManager: {fileID: 440867206}
+--- !u!114 &2004938276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004938272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80c8219fb057a84687ccb77f4d6402d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoResizeScroll
+  scrollViewRect: {fileID: 1756067430}
+  normalHeight: 673
+  kuculmusHeight: 490
 --- !u!1 &2031340374
 GameObject:
   m_ObjectHideFlags: 0

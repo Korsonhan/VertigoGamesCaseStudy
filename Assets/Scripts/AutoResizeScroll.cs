@@ -6,20 +6,31 @@ public class AutoResizeScroll : MonoBehaviour
     public RectTransform scrollViewRect;
 
     [Header("Height (Yükseklik) Değerleri")]
-    public float normalHeight = 673f;      // Resmindeki tam boy
-    public float kuculmusHeight = 400f;    // Alt bar varken (Örnek değer)
+    public float normalHeight = 673f;      
+    public float kuculmusHeight = 400f;    
+
+    // SİHİRLİ SAYAÇ (Tüm menülerin ortak hafızası - "static" kelimesi bunu sağlar)
+    private static int acikMenuSayisi = 0;
 
     void OnEnable()
     {
-        // Menü açıldığında panelin yüksekliğini (Height) azalt
+        acikMenuSayisi++; // Bir menü açıldığında sayacı 1 artır
+        
+        // Menü açıldığı için paneli kesinlikle küçült
         if (scrollViewRect != null)
             scrollViewRect.sizeDelta = new Vector2(scrollViewRect.sizeDelta.x, kuculmusHeight);
     }
 
     void OnDisable()
     {
-        // Menü kapandığında panelin yüksekliğini eski uzun haline getir
-        if (scrollViewRect != null)
-            scrollViewRect.sizeDelta = new Vector2(scrollViewRect.sizeDelta.x, normalHeight);
+        acikMenuSayisi--; // Bir menü kapandığında sayacı 1 azalt
+        
+        // SADECE EĞER AÇIKTA HİÇBİR MENÜ KALMADIYSA paneli eski uzun haline getir!
+        if (acikMenuSayisi <= 0)
+        {
+            acikMenuSayisi = 0; // Eksiye düşmesini engellemek için güvenlik kilidi
+            if (scrollViewRect != null)
+                scrollViewRect.sizeDelta = new Vector2(scrollViewRect.sizeDelta.x, normalHeight);
+        }
     }
 }

@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class AttachmentStats : MonoBehaviour
 {
-    [Header("Eklentinin Silaha Etkisi")]
+    [Header("Eklentinin Silaha Verdiği Bonuslar")]
     public float powerBonus;
     public float damageBonus;
-    public float firerateBonus;
+    public float fireRateBonus; // Hatada aranan suçlu bu!
     public float accuracyBonus;
     public float speedBonus;
     public float rangeBonus;
-    // İhtiyacına göre fireRate, mobility vs. ekleyebilirsin.
 }

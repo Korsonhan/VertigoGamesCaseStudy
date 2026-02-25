@@ -22,11 +22,11 @@ public class WeaponRotator : MonoBehaviour
                 Vector2 mouseDelta = Mouse.current.delta.ReadValue();
                 
                 float rotX = mouseDelta.x * rotationSpeed;
-                float rotY = mouseDelta.y * rotationSpeed; 
+                //float rotY = mouseDelta.y * rotationSpeed; 
 
                 // Silahı döndür
                 weaponTarget.Rotate(Vector3.down, rotX, Space.World);
-                weaponTarget.Rotate(Vector3.right, rotY, Space.World);
+                //weaponTarget.Rotate(Vector3.right, rotY, Space.World);
             }
         }
     }

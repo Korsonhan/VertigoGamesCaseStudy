@@ -33,6 +33,11 @@ public class AttachmentCategory : MonoBehaviour
     {
         UpdateEquipButtonState();
         UpdateHighlights();
+        // (Eğer menü her açılıp kapandığında sıfırlanmasını istiyorsan Start yerine veya Start'a ek olarak buraya da yazabilirsin)
+        if (equippedItem != null)
+        {
+            PreviewItem(equippedItem);
+        }
     }
 
     public void PreviewItem(GameObject itemToPreview)
@@ -57,12 +62,20 @@ public class AttachmentCategory : MonoBehaviour
 
     public void ConfirmEquip()
     {
-        if (gameObject.activeInHierarchy) 
+        if (gameObject.activeInHierarchy)
         {
-            equippedItem = previewItem; 
+            equippedItem = previewItem;
             UpdateEquipButtonState();
             UpdateMainCategoryIcon(); // Onaylayınca sol ikonu da değiştir!
+            // YENİ YERİ: Stat kodunu tamamen bu süslü parantezin İÇİNE aldık!
+            // Böylece sadece bu menü açıkken Equip'e basılırsa statlar güncellenir.
+            if (statsManager != null)
+            {
+                AttachmentStats eqStats = equippedItem != null ? equippedItem.GetComponent<AttachmentStats>() : null;
+                statsManager.CalculateAndLogStats(eqStats, eqStats); 
+            }
         }
+        
     }
 
     void OnDisable()
