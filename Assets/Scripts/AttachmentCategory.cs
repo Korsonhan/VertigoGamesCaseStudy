@@ -33,7 +33,8 @@ public class AttachmentCategory : MonoBehaviour
     {
         UpdateEquipButtonState();
         UpdateHighlights();
-        // (Eğer menü her açılıp kapandığında sıfırlanmasını istiyorsan Start yerine veya Start'a ek olarak buraya da yazabilirsin)
+        
+        // Menü açıldığında veya oyun başladığında mevcut eşyayı sisteme bildir
         if (equippedItem != null)
         {
             PreviewItem(equippedItem);
@@ -53,7 +54,10 @@ public class AttachmentCategory : MonoBehaviour
         {
             AttachmentStats eqStats = equippedItem != null ? equippedItem.GetComponent<AttachmentStats>() : null;
             AttachmentStats prevStats = previewItem != null ? previewItem.GetComponent<AttachmentStats>() : null;
-            statsManager.CalculateAndLogStats(eqStats, prevStats);
+            
+            // GÜNCELLEME BURADA YAPILDI:
+            // Artık 'gameObject.name' (yani kategori ismi) de gönderiliyor.
+            statsManager.CalculateAndLogStats(gameObject.name, eqStats, prevStats);
         }
 
         UpdateEquipButtonState();
@@ -67,15 +71,16 @@ public class AttachmentCategory : MonoBehaviour
             equippedItem = previewItem;
             UpdateEquipButtonState();
             UpdateMainCategoryIcon(); // Onaylayınca sol ikonu da değiştir!
-            // YENİ YERİ: Stat kodunu tamamen bu süslü parantezin İÇİNE aldık!
-            // Böylece sadece bu menü açıkken Equip'e basılırsa statlar güncellenir.
+
             if (statsManager != null)
             {
                 AttachmentStats eqStats = equippedItem != null ? equippedItem.GetComponent<AttachmentStats>() : null;
-                statsManager.CalculateAndLogStats(eqStats, eqStats); 
+                
+                // GÜNCELLEME BURADA YAPILDI:
+                // Kuşanma sırasında da kategori ismini gönderiyoruz ki hafızaya kaydetsin.
+                statsManager.CalculateAndLogStats(gameObject.name, eqStats, eqStats); 
             }
         }
-        
     }
 
     void OnDisable()
@@ -117,19 +122,16 @@ public class AttachmentCategory : MonoBehaviour
         }
     }
 
-    // YENİ SİHİRLİ FONKSİYON: Sol paneli günceller
     private void UpdateMainCategoryIcon()
     {
-        // Eğer ikonları atamayı unuttuysak kod çökmesin
         if (mainCategoryIcon == null || attachmentIcons.Length == 0) return;
 
         for (int i = 0; i < attachmentItems.Length; i++)
         {
-            // Şu anki takılı 3D parçayı listemizde bulursak, onun sırasındaki ikonu sol panele bas
             if (attachmentItems[i] == equippedItem)
             {
                 mainCategoryIcon.sprite = attachmentIcons[i];
-                break; // Bulduk, aramayı bırak
+                break; 
             }
         }
     }
