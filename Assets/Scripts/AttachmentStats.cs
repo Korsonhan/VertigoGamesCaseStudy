@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class AttachmentStats : MonoBehaviour
 {
-    [Header("Eklentinin Silaha Verdiği Bonuslar")]
+    [Header("Weapon Bonuses Provided by the Attachment")]
     public float powerBonus;
     public float damageBonus;
-    public float fireRateBonus; // Hatada aranan suçlu bu!
+    public float fireRateBonus;
     public float accuracyBonus;
     public float speedBonus;
     public float rangeBonus;

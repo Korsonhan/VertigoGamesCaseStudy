@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class MenuCategoryManager : MonoBehaviour
 {
-    [Header("Tüm Kategori Yazıları (Sırasıyla)")]
+    [Header("All Category Articles (In Order)")]
     public GameObject[] categoryTexts;
 
-    [Header("Tüm Sarı Çizgiler (Sırasıyla)")]
+    [Header("All Yellow Highlights (In Order)")]
     public GameObject[] yellowHighlights;
 
     private bool isMenuExpanded = false;

@@ -1,11 +1,11 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Collections.Generic; // DİKKAT: Sözlük (Hafıza) yapısı için bu kütüphane ŞARTTIR!
+using System.Collections.Generic; 
 
 public class WeaponStatsManager : MonoBehaviour
 {
-    [Header("Silahın Temel (Çıplak) Değerleri")]
+    [Header("Basic (Bare) Values ​​of a Weapon")]
     public float basePower = 275f;
     public float baseDamage = 549.6f;
     public float baseFireRate = 600f;
@@ -13,7 +13,7 @@ public class WeaponStatsManager : MonoBehaviour
     public float baseSpeed = 96f;
     public float baseRange = 26.4f;
 
-    [Header("UI - Toplam Değerler (Beyaz Yazılar)")]
+    [Header("UI - Total Values ​​(White Text)")]
     public TextMeshProUGUI powerTotalText;
     public TextMeshProUGUI damageTotalText;
     public TextMeshProUGUI fireRateTotalText;
@@ -21,7 +21,7 @@ public class WeaponStatsManager : MonoBehaviour
     public TextMeshProUGUI speedTotalText;
     public TextMeshProUGUI rangeTotalText;
 
-    [Header("UI - Fark Değerleri (Renkli Yazılar)")]
+    [Header("UI - Difference Values ​​(Colored Text)")]
     public TextMeshProUGUI powerDiffText;
     public TextMeshProUGUI damageDiffText;
     public TextMeshProUGUI fireRateDiffText;
@@ -29,7 +29,7 @@ public class WeaponStatsManager : MonoBehaviour
     public TextMeshProUGUI speedDiffText;
     public TextMeshProUGUI rangeDiffText;
 
-    [Header("UI - Kutu Arka Planları (Renklenecek)")]
+    [Header("UI - Box Backgrounds (To be colored)")]
     public Image powerBarImage;
     public Image damageBarImage;
     public Image fireRateBarImage;
@@ -37,12 +37,11 @@ public class WeaponStatsManager : MonoBehaviour
     public Image speedBarImage;
     public Image rangeBarImage;
 
-    [Header("Renk Ayarları")]
+    [Header("Color Settings")]
     public Color defaultColor = new Color(0.2f, 0.3f, 0.4f, 0.5f); 
     public Color buffColor = new Color(0.1f, 0.6f, 0.1f, 0.5f);    
     public Color nerfColor = new Color(0.6f, 0.1f, 0.1f, 0.5f);    
 
-    // İŞTE SİHİRLİ HAFIZA! (Hangi kategoride hangi eşya takılı aklında tutacak)
     private Dictionary<string, AttachmentStats> takiliEsyalarHafizasi = new Dictionary<string, AttachmentStats>();
 
     void Start()
@@ -56,7 +55,7 @@ public class WeaponStatsManager : MonoBehaviour
         UpdateDiffUI(rangeDiffText, rangeBarImage, 0);
     }
 
-    // YENİ: Artık kod, değerleri gönderenin "Kim" (categoryName) olduğunu da soruyor!
+    //  Kod, değerleri gönderenin "Kim" (categoryName) olduğunu da soruyor!
     public void CalculateAndLogStats(string categoryName, AttachmentStats equippedStats, AttachmentStats previewStats)
     {
         // 1. HAFIZAYI GÜNCELLE: Sana bu veriyi gönderen kategorinin (Örn: Group_Sight) takılı eşyasını hafızaya yaz.

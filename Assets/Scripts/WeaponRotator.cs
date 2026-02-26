@@ -1,24 +1,21 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem; // Yeni sistemi buraya ekledik
+using UnityEngine.InputSystem; 
 
 public class WeaponRotator : MonoBehaviour
 {
-    [Header("Döndürülecek Silah")]
+    [Header("The weapon to be rotated")]
     public Transform weaponTarget; 
     
-    [Header("Dönüş Hızı")]
-    public float rotationSpeed = 0.5f; // Yeni sistem daha hassas olduğu için hızı düşürdük
+    [Header("Rotation Speed")]
+    public float rotationSpeed = 0.5f; 
 
     void Update()
     {
-        // Farenin sol tuşuna basılı tutuluyorsa (YENİ SİSTEM KODU)
         if (Mouse.current != null && Mouse.current.leftButton.isPressed)
         {
-            // Fare imleci UI üzerinde değilse
             if (!EventSystem.current.IsPointerOverGameObject())
             {
-                // Farenin ekrandaki kayma miktarını (delta) al
                 Vector2 mouseDelta = Mouse.current.delta.ReadValue();
                 
                 float rotX = mouseDelta.x * rotationSpeed;

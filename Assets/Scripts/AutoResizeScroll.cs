@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class AutoResizeScroll : MonoBehaviour
 {
-    [Header("Boyu Değişecek Scroll View")]
+    [Header("Scroll View size will change. ")]
     public RectTransform scrollViewRect;
 
-    [Header("Height (Yükseklik) Değerleri")]
+    [Header("Height Values")]
     public float normalHeight = 673f;      
     public float kuculmusHeight = 400f;    
 
-    // SİHİRLİ SAYAÇ (Tüm menülerin ortak hafızası - "static" kelimesi bunu sağlar)
     private static int acikMenuSayisi = 0;
 
     void OnEnable()

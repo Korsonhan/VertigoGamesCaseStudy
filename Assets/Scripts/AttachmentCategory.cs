@@ -4,18 +4,18 @@ using TMPro;
 
 public class AttachmentCategory : MonoBehaviour
 {
-    [Header("Şu An Silaha Takılı Olan (Kalıcı) Parça")]
+    [Header("Currently Attached to the Weapon (Permanent) Piece")]
     public GameObject equippedItem;
 
-    [Header("Equip Butonu Referansları")]
+    [Header("Equip Button References")]
     public Button equipButton;
     public TextMeshProUGUI equipButtonText;
 
-    [Header("Seçim Çerçeveleri (Sırasıyla)")]
+    [Header("Election Frames (In order)")]
     public GameObject[] attachmentItems; 
     public GameObject[] highlightImages; 
 
-    [Header("Sol Menü İkon Güncellemesi (YENİ)")]
+    [Header("Left Menu Icon Update (NEW)")]
     public Image mainCategoryIcon; // Sol paneldeki SIGHT ikonu
     public Sprite[] attachmentIcons; // Alt paneldeki butonların 2D ikonları (Sırasıyla)
 
