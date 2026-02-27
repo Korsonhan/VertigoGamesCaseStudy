@@ -10,13 +10,11 @@ Vertigo Games Technical Artist Case Study
 
 \### UI Video
 
-\[!(https://youtu.be/wDly3LDbEIs)
+\[!(https://youtu.be/wDly3LDbEIs)]
 
 
 
 \### VFX Video
 
-\[!(https://youtu.be/hcJPR3EfDA8)
-
-
+\[!(https://youtu.be/hcJPR3EfDA8)]
 
